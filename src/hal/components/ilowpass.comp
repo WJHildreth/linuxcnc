@@ -35,4 +35,4 @@ license "GPL";
 author "Jeff Epler <jepler@unpythonic.net>";
 ;;
 value += (in - value) * gain;
-out = (int)(rtapi_s64)(value * scale);
+out = (int)(rtapi_s64)((value * scale) + 0.5); // The "+ 0.5" here makes the truncation of a float to an int simulate rounding.
